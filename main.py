@@ -1,6 +1,6 @@
 from empleados.administrador import Administrador
 from empleados.conserje import Conserje
-from empleados.guardian import Guardian
+from empleados.guardia import Guardia
 from empleados.veterinario import Veterinario
 
 from transportes.bicicleta import Bicicleta
@@ -23,7 +23,7 @@ def registrar_empleado():
 
     print("\n--- Registro de empleados ---")
     print("1 Administrador")
-    print("2 Guardián")
+    print("2 Guardia")
     print("3 Conserje")
     print("4 Veterinario")
 
@@ -36,7 +36,7 @@ def registrar_empleado():
         persona = Administrador(nombre, edad)
 
     elif tipo == "2":
-        persona = Guardian(nombre, edad)
+        persona = Guardia(nombre, edad)
 
     elif tipo == "3":
         persona = Conserje(nombre, edad)
@@ -97,9 +97,9 @@ def mostrar_transportes():
 def registrar_animal():
 
     print("\n--- Registro de animales ---")
-    print("1 León")
-    print("2 Tiburón")
-    print("3 Águila")
+    print("1 Leon")
+    print("2 Tiburon")
+    print("3 Aguila")
     print("4 Iguana")
     print("5 Rana")
 
@@ -141,7 +141,7 @@ def iniciar_programa():
 
     while True:
 
-        print("\n===== SISTEMA DEL ZOOLÓGICO =====")
+        print("\n===== SISTEMA DEL ZOOLOGICO =====")
         print("1 Registrar empleado")
         print("2 Ver empleados")
         print("3 Registrar transporte")
