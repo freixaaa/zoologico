@@ -14,168 +14,178 @@ from animales.iguana import Iguana
 from animales.rana import Rana
 
 
-lista_empleados = []
-lista_transportes = []
-lista_animales = []
+empleados_registrados = []
+transportes_registrados = []
+animales_registrados = []
 
 
 def registrar_empleado():
 
     print("\n--- Registro de empleados ---")
-    print("1 Administrador")
-    print("2 Guardia")
-    print("3 Conserje")
-    print("4 Veterinario")
+    print("1. Administrador")
+    print("2. Guardia")
+    print("3. Conserje")
+    print("4. Veterinario")
 
-    tipo = input("Seleccione el tipo de empleado: ")
+    tipo = input("Seleccione el tipo: ")
 
     nombre = input("Nombre: ")
     edad = int(input("Edad: "))
 
     if tipo == "1":
-        persona = Administrador(nombre, edad)
+        nuevo = Administrador(nombre, edad)
 
     elif tipo == "2":
-        persona = Guardia(nombre, edad)
+        nuevo = Guardia(nombre, edad)
 
     elif tipo == "3":
-        persona = Conserje(nombre, edad)
+        nuevo = Conserje(nombre, edad)
 
     elif tipo == "4":
-        persona = Veterinario(nombre, edad)
+        nuevo = Veterinario(nombre, edad)
 
     else:
-        print("Tipo inválido")
+        print("Tipo no válido")
         return
 
-    lista_empleados.append(persona)
-    print("Empleado agregado correctamente")
+    empleados_registrados.append(nuevo)
+    print("Empleado agregado")
 
 
-def mostrar_empleados():
+def ver_empleados():
 
     print("\nLista de empleados")
-    for emp in lista_empleados:
-        print(emp)
+
+    if len(empleados_registrados) == 0:
+        print("No hay empleados registrados")
+
+    for e in empleados_registrados:
+        print(e)
 
 
 def registrar_transporte():
 
     print("\n--- Registro de transportes ---")
-    print("1 Bicicleta")
-    print("2 Cuadraciclo")
-    print("3 Patineta")
+    print("1. Bicicleta")
+    print("2. Cuadraciclo")
+    print("3. Patineta")
 
     tipo = input("Seleccione transporte: ")
-
-    marca = input("Marca del transporte: ")
+    marca = input("Marca: ")
 
     if tipo == "1":
-        vehiculo = Bicicleta(marca)
+        nuevo = Bicicleta(marca)
 
     elif tipo == "2":
-        vehiculo = Cuadraciclo(marca)
+        nuevo = Cuadraciclo(marca)
 
     elif tipo == "3":
-        vehiculo = Patineta(marca)
+        nuevo = Patineta(marca)
 
     else:
-        print("Opción inválida")
+        print("Transporte inválido")
         return
 
-    lista_transportes.append(vehiculo)
-    print("Transporte agregado")
+    transportes_registrados.append(nuevo)
+    print("Transporte guardado")
 
 
-def mostrar_transportes():
+def ver_transportes():
 
-    print("\nTransportes disponibles")
-    for t in lista_transportes:
+    print("\nTransportes registrados")
+
+    if len(transportes_registrados) == 0:
+        print("No hay transportes")
+
+    for t in transportes_registrados:
         print(t)
 
 
 def registrar_animal():
 
     print("\n--- Registro de animales ---")
-    print("1 Leon")
-    print("2 Tiburon")
-    print("3 Aguila")
-    print("4 Iguana")
-    print("5 Rana")
+    print("1. Leon")
+    print("2. Tiburon")
+    print("3. Aguila")
+    print("4. Iguana")
+    print("5. Rana")
 
     tipo = input("Seleccione el animal: ")
-
     nombre = input("Nombre del animal: ")
 
     if tipo == "1":
-        animal = Leon(nombre)
+        nuevo = Leon(nombre)
 
     elif tipo == "2":
-        animal = Tiburon(nombre)
+        nuevo = Tiburon(nombre)
 
     elif tipo == "3":
-        animal = Aguila(nombre)
+        nuevo = Aguila(nombre)
 
     elif tipo == "4":
-        animal = Iguana(nombre)
+        nuevo = Iguana(nombre)
 
     elif tipo == "5":
-        animal = Rana(nombre)
+        nuevo = Rana(nombre)
 
     else:
-        print("Opción inválida")
+        print("Animal inválido")
         return
 
-    lista_animales.append(animal)
-    print("Animal registrado")
+    animales_registrados.append(nuevo)
+    print("Animal agregado")
 
 
-def mostrar_animales():
+def ver_animales():
 
     print("\nAnimales registrados")
-    for a in lista_animales:
+
+    if len(animales_registrados) == 0:
+        print("No hay animales")
+
+    for a in animales_registrados:
         print(a)
 
 
-def iniciar_programa():
+def menu():
 
     while True:
 
         print("\n===== SISTEMA DEL ZOOLOGICO =====")
-        print("1 Registrar empleado")
-        print("2 Ver empleados")
-        print("3 Registrar transporte")
-        print("4 Ver transportes")
-        print("5 Registrar animal")
-        print("6 Ver animales")
-        print("7 Salir")
+        print("1. Registrar empleado")
+        print("2. Ver empleados")
+        print("3. Registrar transporte")
+        print("4. Ver transportes")
+        print("5. Registrar animal")
+        print("6. Ver animales")
 
-        opcion = input("Seleccione una opción: ")
+        print("\npresione 'finalizar' si desea salir")
 
-        if opcion == "1":
+        opcion = input("Seleccione una opcion: ")
+
+        if opcion.lower() == "finalizar":
+            break
+
+        elif opcion == "1":
             registrar_empleado()
 
         elif opcion == "2":
-            mostrar_empleados()
+            ver_empleados()
 
         elif opcion == "3":
             registrar_transporte()
 
         elif opcion == "4":
-            mostrar_transportes()
+            ver_transportes()
 
         elif opcion == "5":
             registrar_animal()
 
         elif opcion == "6":
-            mostrar_animales()
-
-        elif opcion == "7":
-            print("Programa finalizado")
-            break
+            ver_animales()
 
         else:
-            print("Opción inválida")
+            print("Opción no válida")
 
 
-iniciar_programa()
+menu()
