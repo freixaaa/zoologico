@@ -1,3 +1,5 @@
+    class Empleado:
+
     def __init__(self, nombre_persona, edad_persona):
         self.__nombre_persona = nombre_persona
         self.__edad_persona = edad_persona
@@ -23,4 +25,4 @@
 
     def __str__(self):
         return self.informacion()
-      
+        
