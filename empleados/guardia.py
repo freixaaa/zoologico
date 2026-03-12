@@ -1,7 +1,7 @@
 from empleados.empleado import Empleado
 
 
-class Guardian(Empleado):
+class Guardia(Empleado):
 
     def __init__(self, nombre_persona, edad_persona):
         super().__init__(nombre_persona, edad_persona)
